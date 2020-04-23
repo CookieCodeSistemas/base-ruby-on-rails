@@ -1,0 +1,34 @@
+
+version: "3.1"
+
+services:
+
+  db:
+    image: postgres:10-alpine
+    container_name: project_db
+    ports:
+      - 5432:5432
+    tty: true
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+
+  adminer:
+    image: adminer
+    container_name: project_adminer
+    ports:
+      - 8080:8080
+
+  api:
+    build: .
+    container_name: project_api
+    ports:
+      - 80:3000
+    volumes:
+      - ./projects/back:/var/www
+      - .bundle:/usr/local/bundle
+      - .coverage:/var/www/.coverage
+    stdin_open: true
+    tty: true
+    links:
+      - db
