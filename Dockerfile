@@ -1,6 +1,6 @@
 FROM ruby:2.5.1
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-MAINTAINER Lucas A.R. Sartori <lucassartori@cookiecode.com.br>
+MAINTAINER CookieCode <contact@cookiecode.com.br>
 
 ENV APP=/var/www
 ENV HOME=/home/devel
@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     cmake \
     locales \
     graphviz \
-    htop
+    htop \
+    libpq-dev
 
 # skip installing gem documentation
 RUN chmod 777 /usr/local/bundle && mkdir -p /usr/local/etc && { echo 'install: --no-document'; echo 'update: --no-document'; } >> /usr/local/etc/gemrc

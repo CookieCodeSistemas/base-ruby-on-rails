@@ -1,5 +1,7 @@
 # Base RubyOnRails
 
+![Docker Rails Image CI](https://github.com/CookieCodeSistemas/base-ruby-on-rails/workflows/Docker%20Rails%20Image%20CI/badge.svg)
+
 This project dont has a default project already created, you must to create a project how do you need!
 
 ### Requirements
@@ -20,7 +22,7 @@ Add in your `docker-compose.yml` like this:
 ```yalm
 
   db:
-    image: postgres:10-alpine
+    image: postgres
     container_name: project_db
     ports:
       - 5432:5432
