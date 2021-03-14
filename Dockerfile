@@ -1,4 +1,4 @@
-FROM ruby:2.7.2
+FROM ruby:3.0.0
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 MAINTAINER CookieCode <contact@cookiecode.com.br>
 
